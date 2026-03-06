@@ -14,4 +14,8 @@ keybind = ctrl+shift+r=reload_config
 keybind = ctrl+shift+c=copy_to_clipboard
 keybind = ctrl+shift+v=paste_from_clipboard
 
+# resizing
+keybind = ctrl+shift+plus=increase_font_size:1
+keybind = ctrl+minus=decrease_font_size:1
+
 keybind = ctrl+shift+space=write_screen_file:open
