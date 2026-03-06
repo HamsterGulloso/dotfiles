@@ -1,0 +1,47 @@
+@define-color primary whitesmoke;
+@define-color background rgba(0, 0, 0, 0.8);
+@define-color inactive #777777;
+
+/* All Modules */
+* {
+  font-size: 10.5px;
+  background: @background;
+  color: @primary;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+#workspaces button.active * {
+  padding: 0 5px;
+  color: @primary;
+}
+
+#workspaces button * {
+  padding: 0 5px;
+  color: @inactive;
+}
+
+/* #workspaces .taskbar-window * { */
+/*   color: @inactive; */
+/* } */
+/**/
+/* #workspaces .taskbar-window.active * { */
+/*   color: @primary; */
+/* } */
+
+/* Only show windows in active workspace */
+/* #workspaces window:not(.active) .taskbar-window, */
+/* #workspaces .workspace-group:not(.active) .taskbar-window { */
+/*   opacity: 0; */
+/* } */
+
+#pulseaudio,
+#battery,
+#bluetooth,
+#network,
+#cpu,
+#memory,
+#custom-brightness {
+  padding: 0 15px;
+}
