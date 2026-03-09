@@ -35,7 +35,7 @@
         "separate-outputs": true
     },
     "hyprland/window": {
-        "format": "{class} | {title}",
+        "format": "{initialTitle} | {title}",
         "separate-outputs": true
     },
     "cpu": {
