@@ -1,0 +1,56 @@
+window {
+    margin: 0px;
+    background-color: #000000;
+}
+
+#input {
+    border: none;
+    color: whitesmoke;
+    background-color: #000000;
+}
+
+#input:focus {
+    border: 0px;
+    margin-bottom: 0px;
+}
+
+#inner-box {
+    color: whitesmoke;
+    background-color: #000000;
+}
+
+#outer-box {
+    /* border: 2px solid blue; */
+    border: 3px solid transparent; /* Set a transparent border */
+    border-image: linear-gradient(to right, #4b5599, #5fbde1); /* Apply the gradient */
+    border-image-slice: 1; /* Essential for border-image to work correctly */
+    background-color: #000000;
+}
+
+/* #scroll { */
+/*     margin-top: 5px; */
+/*     border: none; */
+/*     border-radius: 15px; */
+/*     margin-bottom: 5px; */
+/* } */
+
+#img, #img:selected {
+    margin-right: 10px;
+    size: 5px;
+    display: none;
+}
+
+#text {
+    font-size: 15px;
+    color: #777777;
+}
+#text:selected {
+    color: whitesmoke;
+}
+
+#entry {
+    margin: 0px 0px;
+    border: none;
+    border-radius: none;
+    background-color: transparent;
+}

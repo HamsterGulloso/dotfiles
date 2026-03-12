@@ -1,0 +1,30 @@
+root {
+    --background: #000000
+}
+/* Set the main window background and text colors */
+window {
+    background-color: var(--background) /* Dark gray/black background */
+    color: #bcbcbc;            /* Light gray/white text */
+}
+
+/* Style the input box (where you type) */
+#input {
+    background-color: #1c1c1c;
+    border: 2px solid #bcbcbc;
+    border-radius: 0;
+    color: #bcbcbc;
+}
+
+/* Style the scroll area/main list area */
+#scroll {
+    background-color: #1c1c1c;
+    border: 2px solid #bcbcbc;
+    border-top-width: 0; /* Remove top border to blend with input */
+    color: #bcbcbc;
+}
+
+/* Style for the selected entry (when you highlight an app/command) */
+#entry:selected {
+    background-color: #5f87af; /* A highlight color (can change to a stark white/black if preferred) */
+    color: #bcbcbc;
+}
