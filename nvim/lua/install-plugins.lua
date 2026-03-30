@@ -18,10 +18,12 @@ require("lazy").setup({
     -- setup comments with 'gc${motion}'
     "numToStr/Comment.nvim",
 
+    -- Align plugin
     {
-        'nvim-mini/mini.nvim',
-        version = '*',
-        config = require('mini.align').setup
+	"nvim-mini/mini.align",
+        config = function()
+            require("mini.align").setup{}
+        end
     },
 
     require("plugins.git-signs"),
