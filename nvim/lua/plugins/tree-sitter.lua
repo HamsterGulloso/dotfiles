@@ -1,7 +1,10 @@
-vim.pack.add({'git@github.com:nvim-treesitter/nvim-treesitter'})
+vim.pack.add({
+    -- Dependencies
+    'git@github.com:nvim-treesitter/nvim-treesitter-textobjects',
 
--- Dependencies
-vim.pack.add({'git@github.com:nvim-treesitter/nvim-treesitter-textobjects'})
+    'git@github.com:nvim-treesitter/nvim-treesitter'
+})
+
 require("nvim-treesitter").setup{
     sync_install = false,
     auto_install = true,
@@ -9,14 +12,6 @@ require("nvim-treesitter").setup{
         enable = true,
         additional_vim_regex_highlighting = false,
     },
-}
-vim.cmd("TSEnable highlight")
-vim.cmd("TSEnable textobjects.select")
-vim.cmd("TSEnable textobjects.move")
-vim.cmd("TSEnable textobjects.swap")
-vim.cmd("TSEnable textobjects.lsp_interop")
-
-require("nvim-treesitter.configs").setup({
     textobjects = {
         select = {
             enable = true,
@@ -56,5 +51,5 @@ require("nvim-treesitter.configs").setup({
             -- and should return true or false
             include_surrounding_whitespace = true,
         },
-    },
-})
+    }
+}
