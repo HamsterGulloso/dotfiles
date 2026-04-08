@@ -14,6 +14,9 @@ vim.pack.add{
     -- Additional lua configuration, makes nvim stuff amazing!
     'git@github.com:folke/neodev.nvim',
 
+    -- Dependencies(telescope)
+    'git@github.com:nvim-lua/plenary.nvim',
+
     'git@github.com:nvim-telescope/telescope.nvim',
     'git@github.com:hrsh7th/cmp-nvim-lsp',
 }
