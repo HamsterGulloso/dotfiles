@@ -53,3 +53,12 @@ require("nvim-treesitter").setup{
         },
     }
 }
+
+vim.api.nvim_create_autocmd(
+    {'BufEnter', 'BufWinEnter'}, {
+        callback = function()
+            pcall(vim.treesitter.start)
+        end
+    }
+)
+
