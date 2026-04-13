@@ -1,0 +1,11 @@
+#! /bin/bash
+
+echo "Start post commit"
+
+if [ "$(git branch --show-current)" == "master" ]; then
+    git checkout office
+    git merge master
+    git checkout master
+fi
+
+echo "End post commit"

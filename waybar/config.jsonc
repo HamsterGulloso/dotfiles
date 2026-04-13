@@ -68,16 +68,24 @@
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
+        // "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        // "on-click": "impala"
+
+        // "format-wifi": "{essid} ({signalStrength}%) ",
+        // "format-ethernet": "{ipaddr}/{cidr} ",
+        // "tooltip-format": "{ifname} via {gwaddr} ",
+        // "format-linked": "{ifname} (No IP) ",
+        // "format-disconnected": "Disconnected ⚠",
+
+        "format-wifi": "{signalStrength}% ",
+        "format-ethernet": " \udb80\udf18",
         "tooltip-format": "{ifname} via {gwaddr} ",
         "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
-        // "format-alt": "{ifname}: {ipaddr}/{cidr}",
-        "on-click": "nm-applet"
+        "format-disconnected": " \udb80\udcad"
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
+        // "on-click": "pavucontrol"
         "format": "{volume}% {icon}   {format_source}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
@@ -93,20 +101,20 @@
             "portable": "",
             "car": "",
             "default": ["", "", ""]
-        },
-        "on-click": "pavucontrol"
+        }
     },
     "bluetooth": {
-        "format": "",
-        "format-off": "",
-        "format-on": "",
-        "format-connected": " {device_alias}",
-        "format-connected-battery": " {device_alias} {device_battery_percentage}%",
-        "tooltip": true,
-        "tooltip-format": "Controller: {controller_alias}\nAddress: {controller_address}\nStatus: {status}",
-        "tooltip-format-connected": "Controller: {controller_alias}\nAddress: {controller_address}\nConnected: {device_alias} ({device_address})\nBattery: {device_battery_percentage}%",
-        "on-click": "blueman-manager",
-        "on-click-right": "$HOME/.config/hypr/scripts/toggle_bluetooth.sh"
+        // "on-click": "blueman-manager",
+        // "on-click-right": "$HOME/.config/hypr/scripts/toggle_bluetooth.sh"
+        // "format": "",
+        // "format-off": "",
+        // "format-on": "",
+        // "format-connected": " {device_alias}",
+        // "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+        // "tooltip": true,
+        // "tooltip-format": "Controller: {controller_alias}\nAddress: {controller_address}\nStatus: {status}",
+        // "tooltip-format-connected": "Controller: {controller_alias}\nAddress: {controller_address}\nConnected: {device_alias} ({device_address})\nBattery: {device_battery_percentage}%"
+        "format-connected-battery": "{device_battery_percentage}% "
     },
     "clock": {
         // "timezone": "America/New_York"
@@ -114,7 +122,7 @@
         // "format": "{:%H:%M, %d/%m}",
         "format": "{:L%H:%M | %A, %d/%m}",
         // "format": "{:%a}",
-        "tooltip-format": "<big><tt><small>{calendar}</small></tt></big>",
+        "tooltip-format": "<big><tt><big>{calendar}</big></tt></big>",
         // "on-click": "~/.config/hypr/scripts/float_calendar.sh"
         "tooltip": true
     }
