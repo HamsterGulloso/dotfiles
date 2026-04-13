@@ -57,7 +57,6 @@ require("nvim-treesitter").setup{
 vim.api.nvim_create_autocmd(
     {'BufEnter', 'BufWinEnter'}, {
         callback = function()
-            print("Porra")
             pcall(vim.treesitter.start)
         end
     }
