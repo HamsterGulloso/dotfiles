@@ -1,0 +1,13 @@
+#! /bin/bash
+
+curr_branch="$(git branch --show-curren)"
+echo "Start pre push on branch $curr_branch"
+
+if [ "$curr_branch" == "master" ]; then
+    git checkout office
+    git pull
+    git push
+    git checkout master
+fi
+
+echo "End pre push on branch $curr_branch"
