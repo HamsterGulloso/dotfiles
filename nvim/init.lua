@@ -29,6 +29,10 @@ vim.keymap.set("v", "g<C-u>", ":!iconv -tASCII//translit<CR>")
 vim.keymap.set("n", "<C-w>.", ":vertical resize +5<CR>")
 vim.keymap.set("n", "<C-w>,", ":vertical resize -5<CR>")
 
+-- Replace
+vim.keymap.set("n", "<A-r>", ":%s/")
+vim.keymap.set("v", "<A-r>", ":s/")
+
 -- set clipboard
 vim.cmd("set clipboard=unnamedplus")
 
