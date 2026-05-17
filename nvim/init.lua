@@ -36,3 +36,6 @@ vim.cmd("set clipboard=unnamedplus")
 vim.o.foldmethod = 'expr'
 vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
 vim.opt.foldenable = false
+
+-- change language for spellchecking
+vim.o.spelllang = "pt"
