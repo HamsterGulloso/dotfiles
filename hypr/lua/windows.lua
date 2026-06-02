@@ -33,7 +33,6 @@ hl.config{
             color = "#1a1a1aee",
         },
 
-        -- https://wiki.hypr.land/Configuring/Variables/#blur
         blur  = {
             enabled = true,
             size = 3,
@@ -59,13 +58,7 @@ hl.config{
         },
     },
     animations = {
-        -- enabled = false
         enabled = true
-
-        -- Old format
-        -- # enabled = no
-        -- bezier = $linear
-        -- animation = $animation
     },
     misc = {
         force_default_wallpaper = 1, -- Set to 0 or 1 to disable the anime mascot wallpapers
@@ -77,53 +70,29 @@ hl.config{
     cursor = {
         hide_on_key_press = true
     },
+    dwindle = {
+        -- pseudotile = true, -- Master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
+        preserve_split = true, -- You probably want this
+    },
+    master = {
+        new_status = "master",
+        mfact = 0.75,
+    },
 }
-
-hl.curve(
-    "linear",
-    {
-        type = "bezier",
-        points = {
-            {0, 0},
-            {1, 1},
-        }
-    }
-)
 
 hl.animation{
     leaf = "global",
     enabled = true,
     speed = 1,
-    curve = "linear",
+    bezier = "linear",
 }
---
--- # https://wiki.hypr.land/Configuring/Variables/#animations
--- animations {
---     enabled = yes, please :)
---     # enabled = no
---
---     bezier = $linear
---     animation = $animation
--- }
---
--- dwindle {
---     # pseudotile = true # Master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
---     preserve_split = true # You probably want this
--- }
---
--- master {
---     new_status = master
---     mfact = 0.75
--- }
---
---
 -- windowrule {
 --   name = windowrule-1
 --   suppress_event = maximize
 --   match:class = .*
 -- }
---
---
+
+
 -- windowrule {
 --   name = windowrule-2
 --   no_focus = on

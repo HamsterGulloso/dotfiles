@@ -16,22 +16,20 @@ return {
         end
     end,
     ctrl_volume_active_window = function(args)
-        local curr_win = hl.get_active_window()
-        local pid = curr_win.pid
         local cmd = ""
         if args.toggle_mute then
-            cmd = string.format(
-                "wpctl set-mute -p %s @DEFAULT_AUDIO_SINK@ toggle",
-                pid
-            )
+            cmd = "wpctl set-mute -p %s @DEFAULT_AUDIO_SINK@ toggle"
         end
         if args.percent ~= nil then
             cmd = string.format(
                 "wpctl set-volume -p %s -l 1 @DEFAULT_AUDIO_SINK@ %s",
-                pid, args.percent
+                "%s", args.percent
             )
         end
         return function()
+            local curr_win = hl.get_active_window()
+            local pid = curr_win.pid
+            local full_cmd = cmd:format(pid)
             hl.exec_cmd(cmd)
         end
     end,

@@ -1,3 +1,3 @@
 hyprlock&
 sleep 2s
-systemctl suspend
+systemctl hybrid-sleep

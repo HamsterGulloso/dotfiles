@@ -5,8 +5,10 @@ local sly_brighter_alpha = "#5fbde133"
 local inactive_color = "#777777"
 local active_color = "#f5f5f5"
 
+local animation_name = "linear"
+
 hl.curve(
-    "linear",
+    animation_name,
     {
         type = "bezier",
         points = {
@@ -44,6 +46,5 @@ return {
 
     rounding = 0,
 
-    linear = "linear, 0, 0, 1, 1",
-    animation = "global, 1, 0.5, linear ",
+    animation_name = animation_name,
 }
