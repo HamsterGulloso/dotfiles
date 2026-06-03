@@ -1,0 +1,16 @@
+#! /bin/bash
+
+
+curr_branch="$(git branch --show-current)"
+staged_files=$(git diff --cached --name-only --diff-filter=ACM)
+
+
+if [ "$curr_branch" == "office" ]; then
+    git checkout master
+    git add $staged_files
+    git commit
+    git checkout office
+    exit 0
+fi
+
+exit 1
