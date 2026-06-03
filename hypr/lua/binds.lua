@@ -23,10 +23,10 @@ hl.bind("Print",         hl.dsp.exec_cmd(programs.grim_slurp))
 hl.bind("SHIFT + Print", hl.dsp.exec_cmd(programs.grim))
 
 hl.bind(super("RETURN"),         hl.dsp.exec_cmd(programs.menu))
-hl.bind(super("SPACE"),          hl.dsp.exec_cmd(programs.statusbar))
+hl.bind(super("SPACE"),          utils.statusbar_toggle)
 hl.bind(super("ESCAPE"),         hl.dsp.exec_cmd(programs.lock))
 hl.bind(super("SHIFT + ESCAPE"), hl.dsp.exit())
-hl.bind(super("CTRL + ESCAPE"),  hl.dsp.exec_cmd("systemctl poweroff"))
+hl.bind(super("CTRL + ESCAPE"),  utils.lock_and_hibernate)
 
 -- General
 hl.bind(super("W"),                  hl.dsp.window.close())
