@@ -1,0 +1,5 @@
+require("lua.autostart")
+require("lua.binds")
+require("lua.keyboard")
+require("lua.windows")
+require("lua.mouse")
