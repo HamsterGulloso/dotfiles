@@ -1,10 +1,10 @@
 local terminal = "st"
+local browser = "min-browser"
 return {
     terminal = terminal,
     fileManager = "dolphin",
-    menu = "wofi --show drun",
-    browser = "zen",
-    browser_private = "zen --private-window",
+    menu = "hyprlauncher",
+    browser = browser,
     lock = "hyprlock",
     wallpaper = "hyprpaper",
     statusbar = "waybar",
@@ -12,7 +12,5 @@ return {
     bluetui = ("%s -e bluetui"):format(terminal),
     grim_slurp = "grim -g \"$(slurp)\" - | wl-copy --",
     grim = "grim - | wl-copy --",
-
-    -- statusbar = "~/.config/hypr/scripts/statusbar_toggle.sh",
-    -- suspend = "~/.config/hypr/scripts/lock_and_suspend.sh",
+    calculator = ("%s numbat"):format(terminal),
 }

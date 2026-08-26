@@ -86,21 +86,21 @@ hl.animation{
     speed = 1,
     bezier = "linear",
 }
--- windowrule {
---   name = windowrule-1
---   suppress_event = maximize
---   match:class = .*
--- }
 
-
--- windowrule {
---   name = windowrule-2
---   no_focus = on
---   match:class = ^$
---   match:title = ^$
---   match:xwayland = 1
---   match:float = 1
---   match:fullscreen = 0
---   match:pin = 0
--- }
---
+hl.window_rule{
+    match = {
+        class = ".*"
+    },
+    suppress_event = "maximize",
+}
+hl.window_rule{
+    match = {
+        class = "^$",
+        title = "^$",
+        xwayland = 1,
+        float = 1,
+        fullscreen = 0,
+        pin = 0,
+    },
+    no_focus = true
+}
