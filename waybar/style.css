@@ -4,12 +4,13 @@
 
 /* All Modules */
 * {
-  font-size: 10.5px;
+  font-size: 11px;
   background: @background;
   color: @primary;
   padding: 0;
   margin: 0;
   border: 0;
+  font-family: "Iosevka Nerd Font";
 }
 
 #workspaces button.active * {

@@ -1,9 +1,0 @@
-exec-once = $statusbar
-exec-once = $wallpaper
-<<<<<<< HEAD
-=======
-exec-once = hyprsunset
-exec-once = systemctl --user start dunst.service
->>>>>>> master
-exec-once = [workspace 1] $terminal
-exec-once = [workspace 2 silent] $browser

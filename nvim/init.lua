@@ -43,3 +43,10 @@ vim.opt.foldenable = false
 
 -- change language for spellchecking
 vim.o.spelllang = "pt"
+
+-- for FASM
+vim.filetype.add({
+  extension = {
+    fasm = "fasm"
+  },
+})

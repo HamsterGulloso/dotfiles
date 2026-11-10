@@ -106,11 +106,5 @@ return {
             hl.exec_cmd("systemctl suspend")
         end
     ),
-    statusbar_toggle = function()
-        if pidof(programs.statusbar) == nil then
-            hl.exec_cmd(programs.statusbar)
-        else
-            hl.exec_cmd(("pkill %s"):format(programs.statusbar))
-        end
-    end,
+    pipe = pipe,
 }

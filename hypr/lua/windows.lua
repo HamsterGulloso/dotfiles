@@ -93,6 +93,7 @@ hl.window_rule{
     },
     suppress_event = "maximize",
 }
+
 hl.window_rule{
     match = {
         class = "^$",

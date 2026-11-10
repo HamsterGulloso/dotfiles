@@ -1,7 +1,7 @@
 local programs = require("lua.programs")
 local utils = require("lua.utils")
 
-local function super(str)
+local function mod_key(str)
     return ("SUPER + %s"):format(str)
 end
 
@@ -13,111 +13,102 @@ hl.bind(
 
 -- Test binding
 -- hl.bind(super("Q"),         utils.test, {locked = true})
-
-hl.bind(super("T"),         hl.dsp.exec_cmd(programs.terminal))
-hl.bind(super("I"),         hl.dsp.exec_cmd(programs.impala))
-hl.bind(super("C"),         hl.dsp.exec_cmd(programs.bluetui))
-hl.bind(super("SHIFT + C"), hl.dsp.exec_cmd(programs.calculator))
-hl.bind(super("E"),         hl.dsp.exec_cmd(programs.fileManager))
-hl.bind(super("R"),         hl.dsp.exec_cmd(programs.menu))
-hl.bind(super("B"),         hl.dsp.exec_cmd(programs.browser))
--- hl.bind(super("SHIFT + B"), hl.dsp.exec_cmd(programs.browser_private))
+hl.bind(mod_key("T"),         hl.dsp.exec_cmd(programs.terminal))
+hl.bind(mod_key("RETURN"),    hl.dsp.exec_cmd(programs.terminal))
+hl.bind(mod_key("I"),         hl.dsp.exec_cmd(programs.impala))
+hl.bind(mod_key("C"),         hl.dsp.exec_cmd(programs.bluetui))
+hl.bind(mod_key("SHIFT + C"), hl.dsp.exec_cmd(programs.calculator))
+hl.bind(mod_key("E"),         hl.dsp.exec_cmd(programs.file_manager))
+hl.bind(mod_key("R"),         hl.dsp.exec_cmd(programs.menu))
+hl.bind(mod_key("B"),         hl.dsp.exec_cmd(programs.browser))
+hl.bind(mod_key("SHIFT + B"), hl.dsp.exec_cmd(programs.browser_private))
+hl.bind(mod_key("V"),         hl.dsp.exec_cmd(programs.wiremix))
 
 hl.bind("Print",         hl.dsp.exec_cmd(programs.grim_slurp))
 hl.bind("SHIFT + Print", hl.dsp.exec_cmd(programs.grim))
 
-hl.bind(super("RETURN"),         hl.dsp.exec_cmd(programs.menu))
-hl.bind(super("SPACE"),          utils.statusbar_toggle)
-hl.bind(super("ESCAPE"),         hl.dsp.exec_cmd(programs.lock))
-hl.bind(super("SHIFT + ESCAPE"), hl.dsp.exit())
-hl.bind(super("CTRL + ESCAPE"),  utils.lock_and_hibernate, {locked = true})
+hl.bind(mod_key("SPACE"),          hl.dsp.exec_cmd(programs.menu))
+hl.bind(mod_key("ESCAPE"),         hl.dsp.exec_cmd(programs.lock))
+hl.bind(mod_key("SHIFT + ESCAPE"), hl.dsp.exit())
+hl.bind(mod_key("CTRL + ESCAPE"),  utils.lock_and_hibernate, {locked = true})
 
 -- General
-hl.bind(super("W"),                  hl.dsp.window.close())
-hl.bind(super("SHIFT + W"),          hl.dsp.window.kill())
-hl.bind(super("SHIFT + F"),          hl.dsp.window.float({ action = "toggle" }))
-hl.bind(super("M"),                  utils.switch_layout("monocle"))
-hl.bind(super("SHIFT + M"),          utils.switch_layout("master"))
-hl.bind(super("D"),                  utils.switch_layout("scrolling"))
-hl.bind(super("SHIFT + D"),          utils.switch_layout("dwindle"))
-hl.bind(super("F"),                  hl.dsp.window.fullscreen())
-hl.bind(super("G"),                  hl.dsp.group.toggle())
-hl.bind(super("CTRL + TAB"),         hl.dsp.group.next())
-hl.bind(super("CTRL + SHIFT + TAB"), hl.dsp.group.next())
-hl.bind(super("L"),                  utils.cycle_xkblayout, {locked = true})
--- hl.bind(super("Д"),                  utils.cycle_xkblayout)
--- bind = SUPER,       P,   pseudo,            # dwindle
--- bind = SUPER,       J,   layoutmsg,         togglesplit #dwindle
--- bind = SUPER SHIFT, G,   moveoutofgroup,
--- bind = SUPER SHIFT, TAB, changegroupactive, b
--- bindl = SUPER, L, exec, hyprctl switchxkblayout at-translated-set-2-keyboard next
--- bindl = SUPER, Д, exec, hyprctl switchxkblayout at-translated-set-2-keyboard next
+hl.bind(mod_key("W"),                  hl.dsp.window.close())
+hl.bind(mod_key("SHIFT + W"),          hl.dsp.window.kill())
+hl.bind(mod_key("SHIFT + F"),          hl.dsp.window.float({ action = "toggle" }))
+hl.bind(mod_key("M"),                  utils.switch_layout("monocle"))
+hl.bind(mod_key("SHIFT + M"),          utils.switch_layout("master"))
+hl.bind(mod_key("S"),                  utils.switch_layout("scrolling"))
+hl.bind(mod_key("D"),                  utils.switch_layout("dwindle"))
+hl.bind(mod_key("F"),                  hl.dsp.window.fullscreen())
+hl.bind(mod_key("G"),                  hl.dsp.group.toggle())
+hl.bind(mod_key("CTRL + TAB"),         hl.dsp.group.next())
+hl.bind(mod_key("CTRL + SHIFT + TAB"), hl.dsp.group.next())
+hl.bind(mod_key("L"),                  utils.cycle_xkblayout, {locked = true})
 
 -- Monocle
-hl.bind("SUPER + TAB", utils.if_layout(
+hl.bind(mod_key("TAB"), utils.if_layout(
     "monocle",
     hl.dsp.layout("cyclenext")
 ))
-hl.bind("SUPER + SHIFT + TAB", utils.if_layout(
+hl.bind(mod_key("SHIFT + TAB"), utils.if_layout(
     "monocle",
     hl.dsp.layout("cycleprev")
 ))
 
 -- Move focus with mainMod + arrow keys
-hl.bind("SUPER + left",  hl.dsp.focus { direction = "l" })
-hl.bind("SUPER + right", hl.dsp.focus { direction = "r" })
-hl.bind("SUPER + up",    hl.dsp.focus { direction = "u" })
-hl.bind("SUPER + down",  hl.dsp.focus { direction = "d" })
+hl.bind(mod_key("left"),  hl.dsp.focus { direction = "l" })
+hl.bind(mod_key("right"), hl.dsp.focus { direction = "r" })
+hl.bind(mod_key("up"),    hl.dsp.focus { direction = "u" })
+hl.bind(mod_key("down"),  hl.dsp.focus { direction = "d" })
 
 -- Move window like the above
-hl.bind("SUPER + SHIFT + left",  hl.dsp.window.move { direction = "l" })
-hl.bind("SUPER + SHIFT + right", hl.dsp.window.move { direction = "r" })
-hl.bind("SUPER + SHIFT + up",    hl.dsp.window.move { direction = "u" })
-hl.bind("SUPER + SHIFT + down",  hl.dsp.window.move { direction = "d" })
+hl.bind(mod_key("SHIFT + left"),  hl.dsp.window.move { direction = "l" })
+hl.bind(mod_key("SHIFT + right"), hl.dsp.window.move { direction = "r" })
+hl.bind(mod_key("SHIFT + up"),    hl.dsp.window.move { direction = "u" })
+hl.bind(mod_key("SHIFT + down"),  hl.dsp.window.move { direction = "d" })
 
 -- Move group like the above
-hl.bind("SUPER + CTRL + left",  hl.dsp.window.move { direction = "l", group_aware = true })
-hl.bind("SUPER + CTRL + right", hl.dsp.window.move { direction = "r", group_aware = true })
-hl.bind("SUPER + CTRL + up",    hl.dsp.window.move { direction = "u", group_aware = true })
-hl.bind("SUPER + CTRL + down",  hl.dsp.window.move { direction = "d", group_aware = true })
+hl.bind(mod_key("CTRL + left"),  hl.dsp.window.move { direction = "l", group_aware = true })
+hl.bind(mod_key("CTRL + right"), hl.dsp.window.move { direction = "r", group_aware = true })
+hl.bind(mod_key("CTRL + up"),    hl.dsp.window.move { direction = "u", group_aware = true })
+hl.bind(mod_key("CTRL + down"),  hl.dsp.window.move { direction = "d", group_aware = true })
 
 -- Switch workspaces with mainMod + [0-9]
-hl.bind("SUPER + 1", hl.dsp.focus { workspace = 1 })
-hl.bind("SUPER + 2", hl.dsp.focus { workspace = 2 })
-hl.bind("SUPER + 3", hl.dsp.focus { workspace = 3 })
-hl.bind("SUPER + 4", hl.dsp.focus { workspace = 4 })
-hl.bind("SUPER + 5", hl.dsp.focus { workspace = 5 })
-hl.bind("SUPER + 6", hl.dsp.focus { workspace = 6 })
-hl.bind("SUPER + 7", hl.dsp.focus { workspace = 7 })
-hl.bind("SUPER + 8", hl.dsp.focus { workspace = 8 })
-hl.bind("SUPER + 9", hl.dsp.focus { workspace = 9 })
-hl.bind("SUPER + 0", hl.dsp.focus { workspace = 10 })
-hl.bind("SUPER + S", hl.dsp.focus { workspace = "special" })
+hl.bind(mod_key("1"), hl.dsp.focus { workspace = 1 })
+hl.bind(mod_key("2"), hl.dsp.focus { workspace = 2 })
+hl.bind(mod_key("3"), hl.dsp.focus { workspace = 3 })
+hl.bind(mod_key("4"), hl.dsp.focus { workspace = 4 })
+hl.bind(mod_key("5"), hl.dsp.focus { workspace = 5 })
+hl.bind(mod_key("6"), hl.dsp.focus { workspace = 6 })
+hl.bind(mod_key("7"), hl.dsp.focus { workspace = 7 })
+hl.bind(mod_key("8"), hl.dsp.focus { workspace = 8 })
+hl.bind(mod_key("9"), hl.dsp.focus { workspace = 9 })
+hl.bind(mod_key("0"), hl.dsp.focus { workspace = 10 })
 
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
-hl.bind("SUPER + SHIFT + 1", hl.dsp.window.move { workspace = 1 })
-hl.bind("SUPER + SHIFT + 2", hl.dsp.window.move { workspace = 2 })
-hl.bind("SUPER + SHIFT + 3", hl.dsp.window.move { workspace = 3 })
-hl.bind("SUPER + SHIFT + 4", hl.dsp.window.move { workspace = 4 })
-hl.bind("SUPER + SHIFT + 5", hl.dsp.window.move { workspace = 5 })
-hl.bind("SUPER + SHIFT + 6", hl.dsp.window.move { workspace = 6 })
-hl.bind("SUPER + SHIFT + 7", hl.dsp.window.move { workspace = 7 })
-hl.bind("SUPER + SHIFT + 8", hl.dsp.window.move { workspace = 8 })
-hl.bind("SUPER + SHIFT + 9", hl.dsp.window.move { workspace = 9 })
-hl.bind("SUPER + SHIFT + 0", hl.dsp.window.move { workspace = 10 })
-hl.bind("SUPER + SHIFT + S", hl.dsp.window.move { workspace = "special" })
+hl.bind(mod_key("SHIFT + 1"), hl.dsp.window.move { workspace = 1 })
+hl.bind(mod_key("SHIFT + 2"), hl.dsp.window.move { workspace = 2 })
+hl.bind(mod_key("SHIFT + 3"), hl.dsp.window.move { workspace = 3 })
+hl.bind(mod_key("SHIFT + 4"), hl.dsp.window.move { workspace = 4 })
+hl.bind(mod_key("SHIFT + 5"), hl.dsp.window.move { workspace = 5 })
+hl.bind(mod_key("SHIFT + 6"), hl.dsp.window.move { workspace = 6 })
+hl.bind(mod_key("SHIFT + 7"), hl.dsp.window.move { workspace = 7 })
+hl.bind(mod_key("SHIFT + 8"), hl.dsp.window.move { workspace = 8 })
+hl.bind(mod_key("SHIFT + 9"), hl.dsp.window.move { workspace = 9 })
+hl.bind(mod_key("SHIFT + 0"), hl.dsp.window.move { workspace = 10 })
 
 -- Move active group to a workspace with mainMod + SHIFT + [0-9]
-hl.bind("SUPER + CTRL + 1", hl.dsp.group.active { index = 1 })
-hl.bind("SUPER + CTRL + 2", hl.dsp.group.active { index = 2 })
-hl.bind("SUPER + CTRL + 3", hl.dsp.group.active { index = 3 })
-hl.bind("SUPER + CTRL + 4", hl.dsp.group.active { index = 4 })
-hl.bind("SUPER + CTRL + 5", hl.dsp.group.active { index = 5 })
-hl.bind("SUPER + CTRL + 6", hl.dsp.group.active { index = 6 })
-hl.bind("SUPER + CTRL + 7", hl.dsp.group.active { index = 7 })
-hl.bind("SUPER + CTRL + 8", hl.dsp.group.active { index = 8 })
-hl.bind("SUPER + CTRL + 9", hl.dsp.group.active { index = 9 })
-hl.bind("SUPER + CTRL + 0", hl.dsp.group.active { index = 10 })
+hl.bind(mod_key("CTRL + 1"), hl.dsp.group.active { index = 1 })
+hl.bind(mod_key("CTRL + 2"), hl.dsp.group.active { index = 2 })
+hl.bind(mod_key("CTRL + 3"), hl.dsp.group.active { index = 3 })
+hl.bind(mod_key("CTRL + 4"), hl.dsp.group.active { index = 4 })
+hl.bind(mod_key("CTRL + 5"), hl.dsp.group.active { index = 5 })
+hl.bind(mod_key("CTRL + 6"), hl.dsp.group.active { index = 6 })
+hl.bind(mod_key("CTRL + 7"), hl.dsp.group.active { index = 7 })
+hl.bind(mod_key("CTRL + 8"), hl.dsp.group.active { index = 8 })
+hl.bind(mod_key("CTRL + 9"), hl.dsp.group.active { index = 9 })
+hl.bind(mod_key("CTRL + 0"), hl.dsp.group.active { index = 10 })
 
 -- # Scroll through existing workspaces with mainMod + scroll
 -- bind = SUPER, mouse_down, workspace, e+1
@@ -128,10 +119,10 @@ hl.bind("SUPER + CTRL + 0", hl.dsp.group.active { index = 10 })
 -- bindm = SUPER, mouse:273, resizewindow
 
 -- resizing
-hl.bind("SUPER + period", hl.dsp.window.resize { x = 50,  y = 0,   relative = true })
-hl.bind("SUPER + comma",  hl.dsp.window.resize { x = -50, y = 0,   relative = true })
-hl.bind("SUPER + equal",  hl.dsp.window.resize { x = 0,   y = 50,  relative = true })
-hl.bind("SUPER + minus",  hl.dsp.window.resize { x = 0,   y = -50, relative = true })
+hl.bind(mod_key("period"), hl.dsp.window.resize { x = 50,  y = 0,   relative = true })
+hl.bind(mod_key("comma"),  hl.dsp.window.resize { x = -50, y = 0,   relative = true })
+hl.bind(mod_key("equal"),  hl.dsp.window.resize { x = 0,   y = 50,  relative = true })
+hl.bind(mod_key("minus"),  hl.dsp.window.resize { x = 0,   y = -50, relative = true })
 
 -- Laptop multimedia keys for volume and
 hl.bind(
