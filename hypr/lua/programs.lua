@@ -1,5 +1,12 @@
 local terminal = "st"
 local browser = "helium"
+
+local function terminal_open_string(terminal, program)
+    return ("%s -e %s"):format(
+        terminal, program
+    )
+end
+
 return {
     terminal = terminal,
     -- file_manager = "dolphin",
@@ -12,8 +19,10 @@ return {
     statusbar = "waybar",
     grim_slurp = "grim -g \"$(slurp)\" - | wl-copy --",
     grim = "grim - | wl-copy --",
-    impala = ("%s -e impala"):format(terminal),
-    bluetui = ("%s -e bluetui"):format(terminal),
-    wiremix = ("%s -e wiremix"):format(terminal),
-    calculator = ("%s numbat"):format(terminal),
+
+    impala = terminal_open_string(terminal, "impala"),
+    bluetui = terminal_open_string(terminal, "bluetui"),
+    wiremix = terminal_open_string(terminal, "wiremix"),
+    calculator = terminal_open_string(terminal, "numbat"),
+    spotify = terminal_open_string(terminal, "spotify_player"),
 }

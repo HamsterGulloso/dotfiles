@@ -13,6 +13,8 @@ hl.bind(
 
 -- Test binding
 -- hl.bind(super("Q"),         utils.test, {locked = true})
+
+-- Programs
 hl.bind(mod_key("T"),         hl.dsp.exec_cmd(programs.terminal))
 hl.bind(mod_key("RETURN"),    hl.dsp.exec_cmd(programs.terminal))
 hl.bind(mod_key("I"),         hl.dsp.exec_cmd(programs.impala))
@@ -23,14 +25,15 @@ hl.bind(mod_key("R"),         hl.dsp.exec_cmd(programs.menu))
 hl.bind(mod_key("B"),         hl.dsp.exec_cmd(programs.browser))
 hl.bind(mod_key("SHIFT + B"), hl.dsp.exec_cmd(programs.browser_private))
 hl.bind(mod_key("V"),         hl.dsp.exec_cmd(programs.wiremix))
-
-hl.bind("Print",         hl.dsp.exec_cmd(programs.grim_slurp))
-hl.bind("SHIFT + Print", hl.dsp.exec_cmd(programs.grim))
+hl.bind(mod_key("SHIFT + S"), hl.dsp.exec_cmd(programs.spotify))
 
 hl.bind(mod_key("SPACE"),          hl.dsp.exec_cmd(programs.menu))
 hl.bind(mod_key("ESCAPE"),         hl.dsp.exec_cmd(programs.lock))
-hl.bind(mod_key("SHIFT + ESCAPE"), hl.dsp.exit())
+hl.bind(mod_key("SHIFT + ESCAPE"), hl.dsp.exit(),            {locked = true})
 hl.bind(mod_key("CTRL + ESCAPE"),  utils.lock_and_hibernate, {locked = true})
+
+hl.bind("Print",         hl.dsp.exec_cmd(programs.grim_slurp))
+hl.bind("SHIFT + Print", hl.dsp.exec_cmd(programs.grim))
 
 -- General
 hl.bind(mod_key("W"),                  hl.dsp.window.close())

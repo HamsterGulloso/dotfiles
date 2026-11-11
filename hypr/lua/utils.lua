@@ -107,4 +107,16 @@ return {
         end
     ),
     pipe = pipe,
+    systemctl_start = function(args)
+        local user = ""
+        if args.user then
+            user = "--user"
+        end
+        hl.exec_cmd(
+            ("systemctl %s start %s.service"):format(
+                user,
+                args.programs
+            )
+        )
+    end,
 }
