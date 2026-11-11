@@ -1,6 +1,6 @@
 local utils = require("lua.utils")
 
-if utils.pipe("hostname") == "daniel-arch" then
+if utils.pipe("cat /etc/hostname") == "daniel-arch" then
     hl.monitor{
         output = "eDP-1",
         mode = "preferred",
@@ -12,7 +12,7 @@ if utils.pipe("hostname") == "daniel-arch" then
         workspace = "1",
         monitor = "eDP-1",
     }
-else
+elseif utils.pipe("cat /etc/hostname") == "nti-arch" then
     hl.monitor{
         output = "HDMI-A-1",
         mode = "preferred",
