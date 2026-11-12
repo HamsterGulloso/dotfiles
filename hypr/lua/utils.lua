@@ -60,11 +60,8 @@ return {
         end
     end,
     cycle_xkblayout = function()
-        local kb_name = "at-translated-set-2-keyboard"
         hl.exec_cmd(
-            ("hyprctl switchxkblayout %s next"):format(
-                kb_name
-            )
+            "hyprctl switchxkblayout current next"
         )
     end,
     ctrl_volume_active_window = function(args)
