@@ -1,7 +1,7 @@
 local terminal = "st"
 local browser = "helium"
 
-local function terminal_open_string(terminal, program)
+local function terminal_open(terminal, program)
     return ("%s -e %s"):format(
         terminal, program
     )
@@ -20,9 +20,9 @@ return {
     grim_slurp = "grim -g \"$(slurp)\" - | wl-copy --",
     grim = "grim - | wl-copy --",
 
-    impala = terminal_open_string(terminal, "impala"),
-    bluetui = terminal_open_string(terminal, "bluetui"),
-    wiremix = terminal_open_string(terminal, "wiremix"),
-    calculator = terminal_open_string(terminal, "numbat"),
-    spotify = terminal_open_string(terminal, "spotify_player"),
+    impala = terminal_open(terminal, "impala"),
+    bluetui = terminal_open(terminal, "bluetui"),
+    wiremix = terminal_open(terminal, "wiremix"),
+    calculator = terminal_open(terminal, "numbat"),
+    spotify = terminal_open(terminal, "spotify_player"),
 }
